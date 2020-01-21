@@ -11356,3 +11356,7 @@ a.text-dark:focus {
   }
 }
 
+.navbar-bg {
+  background-color: #e9ecef;
+}
+

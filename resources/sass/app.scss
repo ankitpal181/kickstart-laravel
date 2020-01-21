@@ -6,3 +6,9 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+
+// Custom CSS That We Want to Write
+.navbar-bg {
+    background-color: $gray-200;
+}
