@@ -11,13 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name( 'index' );
+// Route for the homepage
+Route::get('/', 'BlogController@display')->name( 'index' );
 
-Route::get('/blog-single', function () {
-    return view('blog-single');
-})->name('blog.single');
+// Route for the blog detail page
+Route::get( '/post/{slug}', 'BlogController@displayPost' )->name( 'blog.single' );
 
 Route::get('/blog-submit', function () {
     return view('blog-submit');

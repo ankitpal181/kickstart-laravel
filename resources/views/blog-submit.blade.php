@@ -27,7 +27,7 @@
                         <label for = "content">Post Content</label>
                         <textarea name = "content" class = "form-control" id = "content" rows = "10"></textarea>
                     </div>
-                    <input class="btn-primary btn" type="submit">
+                    <input class = "btn-primary btn" type = "submit">
                 </form>
             </div>
         </div>
