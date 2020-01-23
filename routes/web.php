@@ -12,21 +12,34 @@
 */
 
 // Route for the homepage
-Route::get('/', 'BlogController@display')->name( 'index' );
+Route::get( '/', 'BlogController@display' )->name( 'index' );
 
 // Route for the blog detail page
 Route::get( '/post/{slug}', 'BlogController@displayPost' )->name( 'blog.single' );
 
-Route::get('/blog-submit', function () {
-    return view('blog-submit');
-})->name('blog.submit');
+
+// Routes only for logged in Users
+Route::group( [
+    'middleware' => [ 'auth' ],
+], function () {
+
+    //Route to display the blog submit form
+    Route::get( '/blog-submit', function () {
+        return view( 'blog-submit' );
+    } )->name( 'blog.submit' );
+
+    // Route to submit the bog submit form
+    Route::post( '/blog-submit', 'BlogController@createPost' )->name( 'blog.create' );
+
+} );
 
 Auth::routes();
 
-Route::get('/logout', function () {
+Route::get( '/logout', function () {
     Auth::logout();
-    return view('welcome');
-})->name( 'logout' );
+
+    return redirect( '/' );
+} )->name( 'logout' );
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get( '/home', 'HomeController@index' )->name( 'home' );

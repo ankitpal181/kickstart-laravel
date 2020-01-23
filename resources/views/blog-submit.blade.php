@@ -4,7 +4,7 @@
     <div class = "container my-5">
         <div class = "row">
             <div class = "col-lg-12">
-                <form>
+                <form method="post" action="{{ route('blog.create') }}">
                     @csrf
                     <div class = "form-group">
                         <label for = "title">Blog Title</label>
